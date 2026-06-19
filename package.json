@@ -1,0 +1,24 @@
+{
+  "name": "gha-lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ester713/gha-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Ester713/gha-lab/issues"
+  },
+  "homepage": "https://github.com/Ester713/gha-lab#readme",
+  "devDependencies": {
+    "eslint": "^10.5.0"
+  }
+}
