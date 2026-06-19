@@ -1,0 +1,21 @@
+name: Deploy
+on:
+  workflow_dispatch:
+jobs:
+  staging:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Deploy to staging
+        run: echo "Deploying to $DEPLOY_TARGET"
+        env:
+          DEPLOY_TARGET: ${{ secrets.DEPLOY_TARGET }}
+  production:
+    needs: staging
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Deploy to production
+        run: echo "Deploying to $DEPLOY_TARGET"
+        env:
+          DEPLOY_TARGET: ${{ secrets.DEPLOY_TARGET }}
