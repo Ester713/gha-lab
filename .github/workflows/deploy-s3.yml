@@ -1,0 +1,19 @@
+name: Deploy to S3 (OIDC)
+on:
+  push:
+    branches: [main]
+permissions:
+  id-token: write    # required for OIDC
+  contents: read
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assume AWS role via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::964775859386:role/GitHubActions-S3-Deploy
+          aws-region: us-east-1
+      - name: Sync to S3
+        run: aws s3 sync ./public s3://gha-lab-deploy-ester713 --delete
